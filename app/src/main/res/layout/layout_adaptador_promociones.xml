@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/titulo_promos"
+            android:text="Cubiertos"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            >
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/titulo_credito"
+            android:layout_below="@+id/titulo_promos"
+            android:text=""
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            >
+        </TextView>
+
+        <ImageView
+            android:id="@+id/image_promos"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/titulo_credito"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@android:drawable/ic_popup_sync">
+
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/buttonComprar"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/image_promos"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:text="@string/comprar"
+            android:textSize="20dp"
+            app:srcCompat="@drawable/boton_comprar" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/tv_raya_promos"
+            android:text=""
+            android:layout_below="@+id/buttonComprar"
+            android:background="@color/colorPrimaryDark"
+            android:layout_marginTop="5dp"
+            >
+        </TextView>
+
+    </RelativeLayout>
+
+</RelativeLayout>

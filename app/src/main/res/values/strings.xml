@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Tu casa bonita app</string>
+    <string name="Bienvenido">Bienvenid@</string>
+    <string name="nombreEmpresa">Tu Casa bonita</string>
+    <string name="iniciarSesion">Iniciar sesión</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="comprar">Comprar</string>
+    <string name="registro">Registrarme</string>
+    <string name="crearCuenta">Crear cuenta</string>
+    <string name="nombre">Nombre</string>
+    <string name="Direccion">Dirección</string>
+    <string name="Telefono">Télefono</string>
+    <string name="Contraseña">Contraseña</string>
+    <string name="Email">Email</string>
+    <string name="guardarDatos">Guardar datos</string>
+    <string name="repitecontraseña">Escribe de nuevo tu contraseña</string>
+    <string name="repitecorreo">Escribe de nuevo tu E-mail</string>
+    <string name="CrearCuenta">Crear cuenta</string>
+    <string name="regresarLogin">Ya tengo cuenta</string>
+    <string name="url">https://tucasabonita.site/</string>
+    <string name="tituloCarrito">Carrito de compras</string>
+</resources>

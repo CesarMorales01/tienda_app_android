@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_profile"
+        android:icon="@drawable/profile"
+        android:iconTintMode="screen"
+        android:iconTint="@color/white"
+        android:title="Mis datos"
+        android:tooltipText="@string/app_name"
+        app:showAsAction="always"
+        >
+    </item>
+    <item
+        android:title="Carrito"
+        android:id="@+id/menu_carrito"
+        app:showAsAction="always"
+        android:iconTint="@color/white"
+        android:iconTintMode="screen"
+        android:icon="@drawable/cart"
+        >
+    </item>
+</menu>

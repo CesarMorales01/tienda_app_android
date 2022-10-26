@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistroActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="@string/crearCuenta"
+                android:textAlignment="center"
+                android:background="@color/verde"
+                android:textStyle="bold"
+                android:textSize="14dp"
+                android:id="@+id/titulo_crear_cuenta"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"/>
+
+                <EditText
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edit_nombre"
+                    android:inputType="text"
+                    android:textSize="20dp"
+                    android:hint="@string/nombre"
+                    android:imeOptions="actionNext"
+                    android:layout_below="@id/titulo_crear_cuenta"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    />
+
+            <EditText
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_direccion"
+                android:layout_below="@id/edit_nombre"
+                android:inputType="text"
+                android:textSize="20dp"
+                android:imeOptions="actionNext"
+                android:hint="@string/Direccion"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                />
+
+            <EditText
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_tels_crear_cuenta"
+                android:layout_below="@+id/edit_direccion"
+                android:textSize="20dp"
+                android:inputType="number"
+                android:hint="@string/Telefono"
+                android:imeOptions="actionNext"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                />
+
+            <EditText
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_mail"
+                android:layout_below="@+id/edit_tels_crear_cuenta"
+                android:inputType="text"
+                android:textSize="20dp"
+                android:hint="@string/Email"
+                android:imeOptions="actionNext"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layout_set_password5"
+                android:layout_below="@+id/edit_mail"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/repitecorreo"
+                    android:textColor="@color/rosa"
+                    android:textSize="12dp"
+                    android:id="@+id/descripcion_mail2"
+                    android:textStyle="bold"
+                    android:layout_marginTop="3dp"
+                    />
+
+                <EditText
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edit_mail2"
+                    android:layout_below="@+id/descripcion_mail2"
+                    android:inputType="text"
+                    android:hint="@string/Email"
+                    android:textSize="20dp"
+                    android:imeOptions="actionNext"
+                    />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:textSize="20dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/layout_contra1_crear_cuenta"
+                android:layout_below="@+id/layout_set_password5"
+                android:weightSum="6"
+                >
+                <EditText
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edit_contraseña"
+                    android:layout_below="@+id/edit_tels_crear_cuenta"
+                    android:inputType="textPassword"
+                    android:hint="@string/Contraseña"
+                    android:textSize="20dp"
+                    android:imeOptions="actionNext"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="5"
+                    />
+
+                <ImageView
+                    android:id="@+id/img_mostrar_contra_crear_cuenta"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/editcontra"
+                    app:srcCompat="@android:drawable/ic_menu_view"
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+                </ImageView>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layout_contra1_crear_cuenta"
+                android:id="@+id/layout_set_password4"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/repitecontraseña"
+                    android:textColor="@color/rosa"
+                    android:textSize="12dp"
+                    android:id="@+id/descripcion_set_password4"
+                    android:textStyle="bold"
+                    android:layout_marginTop="3dp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/layout_contra2_crear_cuenta"
+                    android:layout_below="@+id/descripcion_set_password4"
+                    android:weightSum="6"
+                    >
+
+                    <EditText
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/edit_contraseña2"
+                        android:layout_below="@+id/descripcion_set_password4"
+                        android:inputType="textPassword"
+                        android:textSize="20dp"
+                        android:hint="@string/Contraseña"
+                        android:imeOptions="actionDone"
+                        android:layout_weight="5"
+                        />
+
+                    <ImageView
+                        android:id="@+id/img_mostrar_contra_crear_cuenta1"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/editcontra"
+                        app:srcCompat="@android:drawable/ic_menu_view"
+                        android:layout_gravity="center"
+                        android:layout_weight="1">
+                    </ImageView>
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layout_set_password4"
+                android:id="@+id/layout_set_password_btnes"
+                android:layout_marginTop="20dp">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/crearCuenta"
+                    android:id="@+id/btn_crear_cuenta"
+                    android:padding="5dp"
+                    android:textSize="20dp"
+                    android:backgroundTint="@color/verde"
+                    android:textAllCaps="false"
+                    android:layout_centerHorizontal="true"
+                    />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/regresarLogin"
+                    android:layout_below="@+id/btn_crear_cuenta"
+                    android:id="@+id/btn_backToLogin"
+                    android:padding="5dp"
+                    android:layout_marginTop="20dp"
+                    android:textSize="12dp"
+                    android:backgroundTint="@color/azul"
+                    android:textAllCaps="false"
+                    android:layout_centerHorizontal="true"
+                    />
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+</LinearLayout>

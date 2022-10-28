@@ -2,6 +2,7 @@ package com.example.tallerinterfazusuario;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,7 +21,7 @@ import java.util.List;
 
 public class RegistroActivity extends AppCompatActivity {
 
-    private Button regresarLogin, btn_crear_cuenta;
+    private Button regresarLogin, btn_crear_cuenta, btn_eliminar_cuenta;
     private EditText edit_nombre, edit_direccion, edit_tels_crear_cuenta, edit_mail, edit_mail2, edit_contraseña, edit_contraseña2;
     private ImageView img_mostrar_contra_crear_cuenta, img_mostrar_contra_crear_cuenta1;
     private Boolean mostrarContraseña=false;
@@ -33,6 +34,8 @@ public class RegistroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
         titulo_crear_cuenta=findViewById(R.id.titulo_crear_cuenta);
+        btn_eliminar_cuenta=findViewById(R.id.btn_eliminar_cuenta);
+        btn_eliminar_cuenta.setVisibility(View.INVISIBLE);
         prefe= getSharedPreferences("prefe", Context.MODE_PRIVATE);
         edit_nombre= findViewById(R.id.edit_nombre);
         edit_direccion=findViewById(R.id.edit_direccion);
@@ -97,6 +100,25 @@ public class RegistroActivity extends AppCompatActivity {
             }
         });
         validarSesion();
+        btn_eliminar_cuenta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                eliminarCuenta();
+            }
+        });
+    }
+
+    private void eliminarCuenta() {
+        String correo="'"+prefe.getString("usuario", "")+"'";
+        List<Usuarios> lista = Usuarios.find(Usuarios.class, "email="+correo, null);
+        Usuarios usu= lista.get(0);
+        usu.delete();
+        SharedPreferences.Editor editor = prefe.edit();
+        editor.putString("usuario", "").commit();
+        Toast.makeText(this, "Cuenta eliminada!", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(RegistroActivity.this, ProductosActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void editarInfo() {
@@ -130,6 +152,7 @@ public class RegistroActivity extends AppCompatActivity {
 
     private void validarSesion() {
         if(prefe.getString("usuario", "")!=""){
+            btn_eliminar_cuenta.setVisibility(View.VISIBLE);
             btn_crear_cuenta.setText("Modificar");
             titulo_crear_cuenta.setText("Tus datos");
             regresarLogin.setText("Cerrar sesión");

@@ -31,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, RegistroActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
         editTextEmailAddress=findViewById(R.id.editTextEmailAddress);
@@ -45,6 +46,18 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        goProductos();
+    }
+
+    private void goProductos() {
+        Intent intent = new Intent(LoginActivity.this, ProductosActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void validarUsuario() {
@@ -68,6 +81,7 @@ public class LoginActivity extends AppCompatActivity {
     public void irProductos(){
         Intent intent = new Intent(LoginActivity.this, ProductosActivity.class);
         startActivity(intent);
+        finish();
     }
 
     public  int  validarCampos(){

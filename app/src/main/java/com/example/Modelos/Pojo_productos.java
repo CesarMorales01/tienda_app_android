@@ -1,6 +1,6 @@
-package com.example.tallerinterfazusuario;
+package com.example.Modelos;
 
-public class Pojo_promos {
+public class Pojo_productos {
     String descripcion, categoria, imagen, producto, credito, id;
 
     public String getCredito() {

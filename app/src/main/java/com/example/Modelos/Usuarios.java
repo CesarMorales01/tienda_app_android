@@ -1,4 +1,4 @@
-package com.example.tallerinterfazusuario;
+package com.example.Modelos;
 
 import com.orm.SugarRecord;
 

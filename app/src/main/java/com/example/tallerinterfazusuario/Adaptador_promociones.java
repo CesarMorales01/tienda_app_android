@@ -3,11 +3,9 @@ package com.example.tallerinterfazusuario;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -17,10 +15,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.Modelos.Pojo_productos;
+import com.example.Modelos.Utilidades;
+
 import java.util.ArrayList;
 
 public class Adaptador_promociones extends RecyclerView.Adapter<Adaptador_promociones.Holder> implements View.OnClickListener{
-    ArrayList<Pojo_promos> lista;
+    ArrayList<Pojo_productos> lista;
     private View.OnClickListener listener;
     Context context;
     RequestQueue request;
@@ -29,7 +30,7 @@ public class Adaptador_promociones extends RecyclerView.Adapter<Adaptador_promoc
         this.listener = listener;
     }
 
-    public Adaptador_promociones(ArrayList<Pojo_promos> lista, Context context) {
+    public Adaptador_promociones(ArrayList<Pojo_productos> lista, Context context) {
         this.lista = lista;
         this.context=context;
         request= Volley.newRequestQueue(context);

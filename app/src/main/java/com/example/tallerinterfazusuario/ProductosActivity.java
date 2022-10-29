@@ -2,7 +2,6 @@ package com.example.tallerinterfazusuario;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,37 +12,34 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.Modelos.Pojo_productos;
+import com.example.Modelos.Utilidades;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.StringTokenizer;
 
 public class ProductosActivity extends AppCompatActivity {
     private SharedPreferences prefe;
     private ProgressDialog progressDialog;
     public RequestQueue request;
-    public JsonObjectRequest jsonObjectRequest;
     private RecyclerView recycle_productos;
-    private ArrayList<Pojo_promos> listaPromos;
+    private ArrayList<Pojo_productos> listaProductos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +51,7 @@ public class ProductosActivity extends AppCompatActivity {
         recycle_productos=findViewById(R.id.recycle_productos);
         recycle_productos.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recycle_productos.setHasFixedSize(true);
-        listaPromos= new ArrayList<>();
+        listaProductos= new ArrayList<>();
         cargarProductos();    
     }
 
@@ -70,16 +66,16 @@ public class ProductosActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONArray response) {
                         try {
-                            Pojo_promos pojo_promos = null;
+                            Pojo_productos pojo_promos = null;
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject prod = response.getJSONObject(i);
-                                pojo_promos = new Pojo_promos();
+                                pojo_promos = new Pojo_productos();
                                 pojo_promos.setId(prod.getString("codigo"));
                                 pojo_promos.setDescripcion(prod.getString("nombre"));
                                 pojo_promos.setImagen(prod.getString("imagen"));
                                 pojo_promos.setProducto(prod.getString("referencia"));
-                                listaPromos.add(pojo_promos);
-                                cargarAdaptador(listaPromos);
+                                listaProductos.add(pojo_promos);
+                                cargarAdaptador(listaProductos);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -98,7 +94,7 @@ public class ProductosActivity extends AppCompatActivity {
         requestQueue.add(jsonArrayRequest);
     }
 
-    private void cargarAdaptador(ArrayList<Pojo_promos> lista) {
+    private void cargarAdaptador(ArrayList<Pojo_productos> lista) {
         Adaptador_promociones adaptador_promociones = new Adaptador_promociones(lista, getApplicationContext());
         recycle_productos.setAdapter(adaptador_promociones);
         adaptador_promociones.escucharClick(new View.OnClickListener() {

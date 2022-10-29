@@ -2,20 +2,19 @@ package com.example.tallerinterfazusuario;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.Modelos.Usuarios;
 
 import java.util.List;
 
@@ -77,9 +76,9 @@ public class RegistroActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(validarCamposVacios()==9){
                     if(prefe.getString("usuario", "")!=""){
-                       editarInfo();
+                       editarCuentaEnBD();
                     }else{
-                        guardarEnBD();
+                        CrearCuentaEnBD();
                     }
                 }
             }
@@ -88,12 +87,7 @@ public class RegistroActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(prefe.getString("usuario", "")!=""){
-                    SharedPreferences.Editor editor = prefe.edit();
-                    editor.putString("usuario", "").commit();
-                    Toast.makeText(getApplicationContext(), "Sesión terminada.", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(RegistroActivity.this, ProductosActivity.class);
-                    startActivity(intent);
-                    finish();
+                    cerrarSesion();
                 }else{
                     volverLogin();
                 }
@@ -103,12 +97,21 @@ public class RegistroActivity extends AppCompatActivity {
         btn_eliminar_cuenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                eliminarCuenta();
+                eliminarCuentaBD();
             }
         });
     }
 
-    private void eliminarCuenta() {
+    private void cerrarSesion(){
+        SharedPreferences.Editor editor = prefe.edit();
+        editor.putString("usuario", "").commit();
+        Toast.makeText(getApplicationContext(), "Sesión terminada.", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(RegistroActivity.this, ProductosActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void eliminarCuentaBD() {
         String correo="'"+prefe.getString("usuario", "")+"'";
         List<Usuarios> lista = Usuarios.find(Usuarios.class, "email="+correo, null);
         Usuarios usu= lista.get(0);
@@ -121,7 +124,7 @@ public class RegistroActivity extends AppCompatActivity {
         finish();
     }
 
-    private void editarInfo() {
+    private void editarCuentaEnBD() {
         String correo="'"+prefe.getString("usuario", "")+"'";
         List<Usuarios> lista = Usuarios.find(Usuarios.class, "email="+correo, null);
         if(lista.size()>0) {
@@ -171,7 +174,7 @@ public class RegistroActivity extends AppCompatActivity {
         }
     }
 
-    private void guardarEnBD() {
+    private void CrearCuentaEnBD() {
         Usuarios usuarios= new Usuarios(nombre, direccion, telefono, email1, contraseña1);
         usuarios.save();
         reiniciarEditText();
